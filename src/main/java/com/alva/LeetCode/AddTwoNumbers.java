@@ -1,6 +1,6 @@
 package com.alva.LeetCode;
 
-import org.alva.LeetCode.Reference.ListNode;
+import com.alva.LeetCode.Reference.ListNode;
 import org.junit.Test;
 
 /**
