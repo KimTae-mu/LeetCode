@@ -2,6 +2,9 @@ package com.alva.LeetCode;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * <一句话描述>,
  * The string "PAYPALISHIRING" is written in a zigzag pattern on a given number of rows like this: (you may want to display this pattern in a fixed font for better legibility)
@@ -62,12 +65,39 @@ public class ZigZagConversion {
         return sb[0].toString();
     }
 
+    public String convertUseList(String s, int numRows) {
+        if (numRows == 1) {
+            return s;
+        }
+
+        List<StringBuilder> rows = new ArrayList<>();
+        for (int i = 0; i < Math.max(s.length(), numRows); i++) {
+            rows.add(new StringBuilder());
+        }
+
+        int curRow = 0;
+        boolean dirt = false;
+
+        for (char c : s.toCharArray()) {
+            rows.get(curRow).append(c);
+            if (curRow == 0 || curRow == numRows - 1) {
+                dirt = !dirt;
+            }
+            curRow += dirt ? 1 : -1;
+        }
+        StringBuilder result = new StringBuilder();
+        for (StringBuilder sb : rows) {
+            result.append(sb);
+        }
+        return result.toString();
+    }
+
     /**
      * 对题目理解有误,题目仅要求生成一行,对题目的理解造成了误解,复杂化
      */
     @Test
-    public void test(){
+    public void test() {
         String s = "PAYPALISHIRING";
-        System.out.println(convert(s,4));
+        System.out.println(convertUseList(s, 3));
     }
 }
