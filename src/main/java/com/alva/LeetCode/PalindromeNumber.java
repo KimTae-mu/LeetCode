@@ -32,10 +32,12 @@ import org.junit.Test;
  */
 public class PalindromeNumber {
     public boolean isPalindrome(int x) {
+        // 最后一位为0且不为0的数字一定不是回文
         if (x < 0 || x % 10 == 0 && x != 0) {
             return false;
         }
         int index = 0;
+        // 一次性将数字倒置,最后判断与初始是否相同
         while (x > index) {
             index = index * 10 + x % 10;
             x /= 10;
