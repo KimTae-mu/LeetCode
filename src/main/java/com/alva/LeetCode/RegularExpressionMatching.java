@@ -1,5 +1,7 @@
 package com.alva.LeetCode;
 
+import org.junit.Test;
+
 /**
  * <一句话描述>,
  * <p>
@@ -55,4 +57,24 @@ package com.alva.LeetCode;
  * @since 设计wiki | 需求wiki
  */
 public class RegularExpressionMatching {
+    public boolean isMatch(String text, String pattern) {
+        if (pattern.isEmpty()) {
+            return text.isEmpty();
+        }
+
+        boolean first_match = (!text.isEmpty() && pattern.charAt(0) == text.charAt(0) ||
+                pattern.charAt(0) == '.');
+
+        if (pattern.length() >= 2 && pattern.charAt(1) == '*') {
+            return (isMatch(text, pattern.substring(2)) ||
+                    first_match && isMatch(text.substring(1), pattern));
+        } else {
+            return first_match && isMatch(text.substring(1), pattern.substring(1));
+        }
+    }
+
+    @Test
+    public void Test(){
+        System.out.println(isMatch("aabb","a.b"));
+    }
 }
