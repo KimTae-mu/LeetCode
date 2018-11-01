@@ -67,14 +67,27 @@ public class RegularExpressionMatching {
 
         if (pattern.length() >= 2 && pattern.charAt(1) == '*') {
             return (isMatch(text, pattern.substring(2)) ||
-                    first_match && isMatch(text.substring(1), pattern));
+                    (first_match && isMatch(text.substring(1), pattern)));
         } else {
             return first_match && isMatch(text.substring(1), pattern.substring(1));
         }
     }
 
+    public int dp(int n) {
+        if (n == 1 || n == 2) {
+            return n;
+        }
+        return dp(n - 1) + dp(n - 2);
+    }
+
     @Test
-    public void Test(){
-        System.out.println(isMatch("aabb","a.b"));
+    public void Test() {
+        System.out.println(isMatch("ab", ".*c"));
+    }
+
+    @Test
+    public void dp() {
+        int n = 3;
+        System.out.println(dp(5));
     }
 }
