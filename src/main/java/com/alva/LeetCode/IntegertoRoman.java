@@ -44,6 +44,9 @@ public class IntegertoRoman {
         return result.toString();
     }
 
+    /**
+     * 枚举的写法要注意,并且枚举对象的顺序一定要考虑,虽然一般情况下不会进行枚举类的遍历
+     */
     enum Roman {
         M(1000, "M"),
         CM(900, "CM"),
