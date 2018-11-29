@@ -24,7 +24,7 @@ import java.util.Set;
  */
 public class IntersectionofTwoLinkedLists {
 
-    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    public ListNode getIntersectionNodeI(ListNode headA, ListNode headB) {
         Set<ListNode> set = new HashSet<>();
 
         while (headA != null) {
@@ -40,6 +40,79 @@ public class IntersectionofTwoLinkedLists {
         }
 
         return null;
+    }
+
+    public ListNode getIntersectionNodeII(ListNode headA, ListNode headB) {
+        int lenA = getLength(headA);
+        int lenB = getLength(headB);
+
+        if (lenA < lenB) {
+            headB = forwardLongList(lenB, lenA, headB);
+        } else {
+            headA = forwardLongList(lenA, lenB, headA);
+        }
+
+        while (headA != null && headB != null) {
+            if (headA.val == headB.val) {
+                return headA;
+            }
+            headA = headA.next;
+            headB = headB.next;
+        }
+        return null;
+    }
+
+    public int getLength(ListNode head) {
+        int len = 0;
+        while (head != null) {
+            len++;
+            head = head.next;
+        }
+
+        return len;
+    }
+
+    public ListNode forwardLongList(int long_len, int short_len, ListNode head) {
+        int delta = long_len - short_len;
+        while (head != null && delta != 0) {
+            head = head.next;
+            delta--;
+        }
+        return head;
+    }
+
+    public ListNode getIntersectionNodeIII(ListNode headA, ListNode headB) {
+        headA = reverseList(headA);
+        headB = reverseList(headB);
+        int i = 0;
+
+        while (headA!=null&&headB!=null){
+            if(headA.val == headB.val){
+                i++;
+            }else {
+                break;
+            }
+
+            headA = headA.next;
+            headB = headB.next;
+        }
+        if(i != 0){
+            return headA;
+        }else {
+            return null;
+        }
+    }
+
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        ListNode curr = head;
+        while (curr != null) {
+            ListNode temp = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = temp;
+        }
+        return prev;
     }
 
 }
