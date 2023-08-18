@@ -7,3 +7,5 @@ target/
 *.bak
 
 tomcat/
+
+*.DS_Store

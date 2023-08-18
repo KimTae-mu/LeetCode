@@ -1,4 +1,4 @@
-package com.alva.LeetCode;
+package com.alva.LeetCode.back;
 
 import com.alva.LeetCode.Reference.ListNode;
 import org.junit.Test;
