@@ -1,7 +1,5 @@
-package com.alva.LeetCode.stack;
+package com.alva.Leetcode.stack;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Stack;
 
 /**

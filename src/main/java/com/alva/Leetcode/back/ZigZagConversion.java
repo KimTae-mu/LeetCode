@@ -1,4 +1,4 @@
-package com.alva.LeetCode.back;
+package com.alva.Leetcode.back;
 
 import org.junit.Test;
 

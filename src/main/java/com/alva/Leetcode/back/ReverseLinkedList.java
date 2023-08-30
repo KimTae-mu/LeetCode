@@ -1,8 +1,6 @@
-package com.alva.LeetCode.back;
+package com.alva.Leetcode.back;
 
-import com.alva.LeetCode.Reference.ListNode;
-
-import java.util.List;
+import com.alva.Leetcode.Reference.ListNode;
 
 /**
  * <一句话描述>,

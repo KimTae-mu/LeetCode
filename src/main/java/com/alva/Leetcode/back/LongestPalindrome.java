@@ -1,4 +1,4 @@
-package com.alva.LeetCode.back;
+package com.alva.Leetcode.back;
 
 import java.util.Map;
 import java.util.stream.Collectors;
