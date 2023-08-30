@@ -1,6 +1,6 @@
 package com.alva.Leetcode.back;
 
-import com.alva.Leetcode.Reference.ListNode;
+import com.alva.Leetcode.editor.cn.utils.ListNode;
 import org.junit.Test;
 
 /**
